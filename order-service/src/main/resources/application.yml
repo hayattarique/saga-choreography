@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: order-service
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/saga
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  cloud:
+    stream:
+      function:
+        definition: orderSupplier
+      bindings:
+        orderSupplier-out-0:
+          destination: order-event
+
+
+
+server:
+  port: 8082
