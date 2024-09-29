@@ -10,13 +10,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-  cloud:
-    stream:
-      function:
-        definition: orderSupplier
-      bindings:
-        orderSupplier-out-0:
-          destination: order-event
+
 
 
 
