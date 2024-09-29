@@ -1,14 +1,14 @@
 package org.boot.orderservice.service;
 
 import org.boot.commondtos.dto.OrderRequestDto;
-import org.boot.orderservice.entities.PurchaseOrder;
+import org.boot.commondtos.dto.OrderResponseDto;
 
 import java.util.List;
 
 public interface OrderService {
-    List<PurchaseOrder> getOrders();
+    List<OrderResponseDto> getOrders();
 
-    PurchaseOrder createOrder(OrderRequestDto order);
+    OrderResponseDto createOrder(OrderRequestDto order);
 
     void cancelOrder(OrderRequestDto order);
 }
