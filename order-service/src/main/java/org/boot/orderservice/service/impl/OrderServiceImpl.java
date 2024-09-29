@@ -1,6 +1,7 @@
 package org.boot.orderservice.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.boot.commondtos.constant.OrderStatus;
 import org.boot.commondtos.constant.PaymentStatus;
 import org.boot.commondtos.dto.OrderRequestDto;
@@ -16,6 +17,7 @@ import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final OrderStatusPublisher statusPublisher;
@@ -35,7 +37,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public PurchaseOrder createOrder(OrderRequestDto order) {
-
         PurchaseOrder purchaseOrder = orderRepository.save(convert(order));
         order.setOrderId(purchaseOrder.getOrderId());
         //produce kafka with status ORDER_CREATED
@@ -45,9 +46,9 @@ public class OrderServiceImpl implements OrderService {
 
 
     private PurchaseOrder convert(OrderRequestDto orderRequestDto) {
-        return (PurchaseOrder) Stream.of(orderRequestDto).map(
-                o -> PurchaseOrder.builder().orderStatus(OrderStatus.ORDER_CREATED)
-                        .paymentStatus(PaymentStatus.PAYMENT_COMPLETED)
-                        .price(o.getAmount()).productId(o.getProductId()).userId(o.getUserId()).build());
+      return   PurchaseOrder.builder().orderStatus(OrderStatus.ORDER_CREATED)
+                .paymentStatus(PaymentStatus.PAYMENT_COMPLETED).price(orderRequestDto.getAmount())
+                .userId(orderRequestDto.getUserId()).productId(orderRequestDto.getProductId())
+                .productName(orderRequestDto.getProductName()).build();
     }
 }
