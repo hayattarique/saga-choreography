@@ -10,8 +10,6 @@
         <module name="common-dtos" />
         <module name="order-service" />
         <module name="payment-service" />
-        <module name="order-service (1)" />
-        <module name="order-service (2)" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,8 +17,6 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common-dtos" options="-parameters" />
       <module name="order-service" options="-parameters" />
-      <module name="order-service (1)" options="-parameters" />
-      <module name="order-service (2)" options="-parameters" />
       <module name="payment-service" options="-parameters" />
       <module name="saga-choreography" options="" />
     </option>

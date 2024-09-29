@@ -3,6 +3,8 @@
   <component name="SonarLintProjectSettings">
     <option name="moduleMapping">
       <map>
+        <entry key="common-dtos" value="order-service (1)" />
+        <entry key="order-service" value="order-service (2)" />
         <entry key="saga-choreography" value="demo" />
       </map>
     </option>

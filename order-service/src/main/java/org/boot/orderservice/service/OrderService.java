@@ -10,5 +10,5 @@ public interface OrderService {
 
     OrderResponseDto createOrder(OrderRequestDto order);
 
-    void cancelOrder(OrderRequestDto order);
+    void cancelOrder(int id);
 }

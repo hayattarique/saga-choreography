@@ -28,4 +28,10 @@ public class OrderController {
         return new ResponseEntity<>(orderService.getOrders(), HttpStatus.OK);
     }
 
+    @DeleteMapping("/cancel")
+    public ResponseEntity<String> deleteOrder(@RequestParam int orderId) {
+        orderService.cancelOrder(orderId);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("order deleted");
+    }
+
 }

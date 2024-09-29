@@ -24,11 +24,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public void cancelOrder(OrderRequestDto order) {
-        Integer orderId = order.getOrderId();
+    public void cancelOrder(int orderId) {
+
         orderRepository.deleteById(orderId);
     }
 
+    @Override
     @Transactional(readOnly = true)
     public List<OrderResponseDto> getOrders() {
         List<PurchaseOrder> orderList = orderRepository.findAll();
