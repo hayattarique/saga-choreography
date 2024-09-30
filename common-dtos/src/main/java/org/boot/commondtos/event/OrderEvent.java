@@ -1,5 +1,6 @@
 package org.boot.commondtos.event;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.boot.commondtos.dto.OrderRequestDto;
 import org.boot.commondtos.constant.OrderStatus;
@@ -7,6 +8,7 @@ import org.boot.commondtos.constant.OrderStatus;
 import java.time.LocalDate;
 import java.util.UUID;
 @NoArgsConstructor
+@Data
 public class OrderEvent implements Event {
     private UUID eventId = UUID.randomUUID();
     private LocalDate eventDate = LocalDate.now();

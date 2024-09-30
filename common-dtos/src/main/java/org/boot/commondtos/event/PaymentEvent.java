@@ -1,5 +1,6 @@
 package org.boot.commondtos.event;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.boot.commondtos.constant.PaymentStatus;
 import org.boot.commondtos.dto.PaymentRequestDto;
@@ -7,6 +8,7 @@ import org.boot.commondtos.dto.PaymentRequestDto;
 import java.time.LocalDate;
 import java.util.UUID;
 @NoArgsConstructor
+@Data
 public class PaymentEvent implements Event {
     public PaymentEvent(PaymentStatus paymentStatus, PaymentRequestDto paymentRequestDto) {
         this.paymentStatus = paymentStatus;
